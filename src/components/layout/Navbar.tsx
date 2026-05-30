@@ -12,13 +12,13 @@ import Typography from '@mui/material/Typography';
 import { alpha, useTheme } from '@mui/material/styles';
 import { useMemo, useState } from 'react';
 import { Link as RouterLink, NavLink, useLocation } from 'react-router-dom';
+import logo from '../../assets/logo.png';
 
 const navItems = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
   { label: 'Output', to: '/output' },
   { label: 'Team', to: '/team' },
-  { label: 'Contact', to: '/contact' },
 ];
 
 const Navbar = () => {
@@ -36,69 +36,107 @@ const Navbar = () => {
       position="sticky"
       elevation={0}
       sx={{
-        backgroundColor: alpha(theme.palette.background.paper, 0.85),
-        backdropFilter: 'blur(20px)',
-        borderBottom: `1px solid ${theme.palette.divider}`,
+        backgroundColor: '#381932',
+        color: theme.palette.secondary.main,
+        borderBottom: 'none',
       }}
     >
       <Container maxWidth="lg">
-        <Toolbar disableGutters sx={{ minHeight: 76 }}>
+        <Toolbar
+          disableGutters
+          sx={{
+            minHeight: { xs: 76, md: 96 },
+            gap: { xs: 1, md: 3 },
+          }}
+        >
           <Stack
             component={RouterLink}
             direction="row"
-            spacing={1.5}
+            spacing={1.25}
             to="/"
-            sx={{ textDecoration: 'none', alignItems: 'center', color: 'inherit', flexGrow: 1 }}
+            sx={{
+              textDecoration: 'none',
+              alignItems: 'center',
+              color: 'inherit',
+              flexShrink: 0,
+              minWidth: 0,
+            }}
           >
             <Box
+              component="img"
+              src={logo}
+              alt="Power House logo"
               sx={{
-                width: 42,
-                height: 42,
-                borderRadius: 2,
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: theme.palette.primary.contrastText,
-                background: `linear-gradient(135deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
-                fontWeight: 800,
+                width: { xs: 58, md: 68 },
+                height: { xs: 58, md: 68 },
+                objectFit: 'contain',
               }}
-            >
-              PH
-            </Box>
+            />
             <Box>
-              <Typography variant="h6" sx={{ lineHeight: 1.1 }}>
+              <Typography
+                variant="h6"
+                sx={{
+                  lineHeight: 1.05,
+                  color: theme.palette.secondary.light,
+                  fontWeight: 700,
+                }}
+              >
                 Power House
               </Typography>
-              <Typography variant="caption" color="text.secondary">
-                Digital Marketing
+              <Typography
+                variant="caption"
+                sx={{
+                  lineHeight: 1.1,
+                  color: alpha(theme.palette.secondary.main, 0.78),
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                Marketing Agency
               </Typography>
             </Box>
           </Stack>
 
-          <Stack direction="row" spacing={1} sx={{ display: { xs: 'none', md: 'flex' } }}>
+          <Stack
+            direction="row"
+            spacing={0.5}
+            sx={{
+              display: { xs: 'none', md: 'flex' },
+              flexGrow: 1,
+              justifyContent: 'center',
+            }}
+          >
             {navItems.map((item) => (
               <Button
                 key={item.to}
                 component={NavLink}
                 to={item.to}
                 sx={{
+                  px: 2,
+                  py: 1.25,
                   color:
                     location.pathname === item.to
-                      ? theme.palette.primary.main
-                      : theme.palette.text.primary,
+                      ? theme.palette.secondary.light
+                      : alpha(theme.palette.secondary.main, 0.82),
                   position: 'relative',
+                  fontSize: '1rem',
+                  fontWeight: location.pathname === item.to ? 700 : 500,
                   '&::after': {
                     content: '""',
                     position: 'absolute',
-                    left: 16,
-                    right: 16,
-                    bottom: 8,
+                    left: 18,
+                    right: 18,
+                    bottom: 10,
                     height: 2,
                     borderRadius: 999,
-                    backgroundColor: theme.palette.primary.main,
+                    backgroundColor: theme.palette.secondary.light,
                     transform: location.pathname === item.to ? 'scaleX(1)' : 'scaleX(0)',
                     transformOrigin: 'center',
                     transition: 'transform 0.3s ease',
+                  },
+                  '&:hover': {
+                    backgroundColor: 'transparent',
+                    color: theme.palette.secondary.light,
                   },
                 }}
               >
@@ -107,10 +145,37 @@ const Navbar = () => {
             ))}
           </Stack>
 
+          <Button
+            component={RouterLink}
+            to="/contact"
+            variant="contained"
+            color="secondary"
+            sx={{
+              display: { xs: 'none', md: 'inline-flex' },
+              minWidth: 132,
+              px: 3,
+              py: 1.35,
+              borderRadius: 2,
+              backgroundColor: theme.palette.secondary.light,
+              color: '#0b3650',
+              boxShadow: 'none',
+              '&:hover': {
+                backgroundColor: alpha(theme.palette.secondary.light, 0.92),
+                boxShadow: 'none',
+              },
+            }}
+          >
+            Contact Us
+          </Button>
+
           <IconButton
             aria-label="Open menu"
             onClick={() => setOpen(true)}
-            sx={{ display: { xs: 'inline-flex', md: 'none' }, color: theme.palette.text.primary }}
+            sx={{
+              display: { xs: 'inline-flex', md: 'none' },
+              color: theme.palette.secondary.light,
+              ml: 'auto',
+            }}
           >
             <MenuIcon />
           </IconButton>

@@ -4,6 +4,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Footer from './components/layout/Footer';
 import Navbar from './components/layout/Navbar';
+import ScrollToTop from './components/layout/ScrollToTop';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
@@ -15,6 +16,7 @@ const App = () => (
   <ThemeProvider theme={theme}>
     <CssBaseline />
     <BrowserRouter>
+      <ScrollToTop />
       <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <Navbar />
         <Box sx={{ flex: 1 }}>

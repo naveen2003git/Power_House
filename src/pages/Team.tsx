@@ -10,7 +10,7 @@ const Team = () => {
   const theme = useTheme();
 
   return (
-    <Box component="main">
+    <Box component="main" sx={{mb: 8}}>
       <Box sx={{ py: { xs: 8, md: 14 } }}>
         <Container maxWidth="lg">
           <Typography variant="h2" sx={{ mb: 2 }}>
@@ -22,15 +22,15 @@ const Team = () => {
         </Container>
       </Box>
 
-      <Box sx={{ py: { xs: 8, md: 14 } }}>
+      <Box >
         <Container maxWidth="lg">
           <Typography variant="h2" sx={{ mb: 5 }}>
-            Leadership
+            Partners
           </Typography>
           <Box
             sx={{
               display: 'grid',
-              gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
+              gridTemplateColumns: { xs: '1fr', md: 'repeat(4, 1fr)' },
               gap: 3,
             }}
           >
@@ -41,7 +41,7 @@ const Team = () => {
         </Container>
       </Box>
 
-      <Box sx={{ py: { xs: 8, md: 14 } }}>
+      {/* <Box sx={{ py: { xs: 8, md: 14 } }}>
         <Container maxWidth="lg">
           <Typography variant="h2" sx={{ mb: 5 }}>
             Core Team
@@ -58,38 +58,8 @@ const Team = () => {
             ))}
           </Box>
         </Container>
-      </Box>
+      </Box> */}
 
-      <Box sx={{ py: { xs: 8, md: 14 } }}>
-        <Container maxWidth="lg">
-          <Box
-            sx={{
-              p: { xs: 4, md: 6 },
-              borderRadius: 6,
-              display: 'grid',
-              gridTemplateColumns: { xs: '1fr', md: '1fr auto' },
-              gap: 3,
-              alignItems: 'center',
-              border: `1px solid ${theme.palette.divider}`,
-              background:
-                `linear-gradient(135deg, ${alpha(theme.palette.background.paper, 0.9)} 0%, ` +
-                `${alpha(theme.palette.primary.main, 0.14)} 50%, ${alpha(theme.palette.secondary.main, 0.12)} 100%)`,
-            }}
-          >
-            <Box>
-              <Typography variant="h2" sx={{ mb: 1.5 }}>
-                Join Us
-              </Typography>
-              <Typography color="text.secondary" sx={{ maxWidth: 620, lineHeight: 1.8 }}>
-                We&apos;re building a team that loves thoughtful strategy, sharp creative, and measurable digital impact.
-              </Typography>
-            </Box>
-            <SecondaryButton href="/contact" size="large">
-              Explore Careers
-            </SecondaryButton>
-          </Box>
-        </Container>
-      </Box>
     </Box>
   );
 };

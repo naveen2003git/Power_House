@@ -3,11 +3,12 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { alpha, useTheme } from '@mui/material/styles';
-import heroImage from '../assets/hero.png';
+import Logo from '../assets/logo.png';
 import PrimaryButton from '../components/ui/PrimaryButton';
 import SecondaryButton from '../components/ui/SecondaryButton';
 import ServiceCard from '../components/ui/ServiceCard';
 import StatsCard from '../components/ui/StatsCard';
+import TestimonialsSection from '../components/ui/TestimonialsSection';
 import {
   companySubheading,
   companyTagline,
@@ -15,6 +16,7 @@ import {
   secondaryCtaText,
   services,
   stats,
+  testimonials,
 } from '../content/siteContent';
 
 const Home = () => {
@@ -25,127 +27,202 @@ const Home = () => {
       <Box
         sx={{
           position: 'relative',
-          minHeight: 'calc(100vh - 76px)',
-          display: 'flex',
-          alignItems: 'center',
+          backgroundColor: theme.palette.primary.main,
           overflow: 'hidden',
+          pt: { xs: 10, md: 12 },
+          pb: { xs: 8, md: 0 },
         }}
       >
         <Box
           sx={{
             position: 'absolute',
-            inset: 0,
-            background:
-              `radial-gradient(circle at 10% 20%, ${alpha(theme.palette.primary.main, 0.22)} 0%, transparent 35%),` +
-              `radial-gradient(circle at 85% 25%, ${alpha(theme.palette.secondary.main, 0.18)} 0%, transparent 30%),` +
-              `linear-gradient(180deg, ${alpha(theme.palette.background.paper, 0.6)} 0%, ${theme.palette.background.default} 100%)`,
-          }}
-        />
-        <Box
-          sx={{
-            position: 'absolute',
-            top: '12%',
-            right: { xs: '-20%', md: '8%' },
-            width: { xs: 220, md: 420 },
-            height: { xs: 220, md: 420 },
+            left: '50%',
+            top: { xs: 88, md: 112 },
+            transform: 'translateX(-50%)',
+            width: { xs: 320, md: 620 },
+            height: { xs: 320, md: 620 },
             borderRadius: '50%',
-            background: `radial-gradient(circle, ${alpha(theme.palette.secondary.main, 0.16)} 0%, transparent 68%)`,
-            filter: 'blur(10px)',
-            animation: 'floatPulse 8s ease-in-out infinite',
+            background: `radial-gradient(circle, ${alpha(theme.palette.secondary.main, 0.06)} 0%, transparent 72%)`,
+            filter: 'blur(24px)',
           }}
         />
-        <Container maxWidth="lg" sx={{ position: 'relative', py: { xs: 10, md: 14 } }}>
+        <Container maxWidth="lg" sx={{ position: 'relative' }}>
           <Box
             sx={{
-              display: 'grid',
-              gridTemplateColumns: { xs: '1fr', md: '1.1fr 0.9fr' },
-              alignItems: 'center',
-              gap: { xs: 6, md: 8 },
+              textAlign: 'center',
+              maxWidth: 920,
+              mx: 'auto',
             }}
           >
-            <Box>
+            <Box
+              sx={{
+                position: 'relative',
+                zIndex: 1,
+                pt: { xs: 2, md: 3 },
+                pb: { xs: 8, md: 0 },
+              }}
+            >
               <Typography
                 variant="overline"
-                sx={{ color: theme.palette.primary.main, letterSpacing: '0.2em' }}
+                sx={{
+                  color: alpha(theme.palette.secondary.main, 0.72),
+                  letterSpacing: '0.22em',
+                }}
               >
                 Digital Marketing Agency
               </Typography>
-              <Typography variant="h5" sx={{ mt: 2, maxWidth: 720, fontSize: { xs: '3rem', md: '4rem' } }}>
+              <Typography
+                variant="h1"
+                sx={{
+                  mt: 2,
+                  color: theme.palette.secondary.light,
+                  fontSize: { xs: '2.7rem', sm: '3.4rem', md: '4.5rem' },
+                  lineHeight: 1.05,
+                  maxWidth: 860,
+                  mx: 'auto',
+                }}
+              >
                 Bold campaigns that turn attention into growth.
               </Typography>
               <Typography
                 variant="h6"
-                color="text.secondary"
-                sx={{ mt: 3, maxWidth: 640, lineHeight: 1.8, fontWeight: 400 }}
+                sx={{
+                  mt: 3,
+                  maxWidth: 640,
+                  mx: 'auto',
+                  lineHeight: 1.8,
+                  fontWeight: 400,
+                  color: alpha(theme.palette.secondary.main, 0.88),
+                }}
               >
                 {companySubheading}
               </Typography>
-              <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', mt: 4 }}>
-                <PrimaryButton endIcon={<ArrowForwardIcon />} href="/contact" size="large">
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  gap: 2,
+                  flexWrap: 'wrap',
+                  mt: 4,
+                }}
+              >
+                <PrimaryButton
+                  endIcon={<ArrowForwardIcon />}
+                  href="/contact"
+                  size="large"
+                  sx={{
+                    backgroundColor: theme.palette.secondary.main,
+                    color: theme.palette.primary.main,
+                    '&:hover': {
+                      backgroundColor: theme.palette.secondary.dark,
+                    },
+                  }}
+                >
                   {primaryCtaText}
                 </PrimaryButton>
-                <SecondaryButton href="/output" size="large">
+                <SecondaryButton
+                  href="/output"
+                  size="large"
+                  sx={{
+                    color: theme.palette.secondary.main,
+                    borderColor: alpha(theme.palette.secondary.main, 0.35),
+                    '&:hover': {
+                      borderColor: theme.palette.secondary.main,
+                      backgroundColor: alpha(theme.palette.secondary.main, 0.08),
+                    },
+                  }}
+                >
                   {secondaryCtaText}
                 </SecondaryButton>
               </Box>
-              <Typography color="text.secondary" sx={{ mt: 4 }}>
-                {companyTagline}
-              </Typography>
-            </Box>
-
-            <Box
-              sx={{
-                position: 'relative',
-                minHeight: { xs: 360, md: 540 },
-                borderRadius: 6,
-                overflow: 'hidden',
-                border: `1px solid ${alpha(theme.palette.common.white, 0.08)}`,
-                background:
-                  `linear-gradient(135deg, ${alpha(theme.palette.background.paper, 0.82)} 0%, ` +
-                  `${alpha(theme.palette.background.default, 0.52)} 100%)`,
-              }}
-            >
-              <Box
-                component="img"
-                src={heroImage}
-                alt="Power House hero"
+              <Typography
                 sx={{
-                  position: 'absolute',
-                  inset: 0,
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  opacity: 0.45,
-                }}
-              />
-              <Box
-                sx={{
-                  position: 'absolute',
-                  inset: 0,
-                  background:
-                    `linear-gradient(180deg, ${alpha(theme.palette.background.default, 0.08)} 0%, ` +
-                    `${alpha(theme.palette.background.default, 0.82)} 100%)`,
-                }}
-              />
-              <Box
-                sx={{
-                  position: 'absolute',
-                  right: 24,
-                  bottom: 24,
-                  left: 24,
-                  p: 3,
-                  borderRadius: 4,
-                  backdropFilter: 'blur(12px)',
-                  backgroundColor: alpha(theme.palette.background.paper, 0.62),
-                  border: `1px solid ${alpha(theme.palette.common.white, 0.08)}`,
+                  mt: 3,
+                  color: alpha(theme.palette.secondary.main, 0.7),
                 }}
               >
-                <Typography variant="h5" sx={{ mb: 1 }}>
-                  Strategy. Creative. Conversion.
-                </Typography>
-                <Typography color="text.secondary" sx={{ lineHeight: 1.8 }}>
-                  Power House blends brand storytelling with performance systems so every campaign feels sharp and proves its value.
-                </Typography>
+                {companyTagline}
+              </Typography>
+
+              <Box
+                sx={{
+                  position: 'relative',
+                  mt: { xs: 7, md: 9 },
+                  minHeight: { xs: 320, md: 470 },
+                }}
+              >
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    left: { xs: 0, md: 24 },
+                    right: { xs: 0, md: 24 },
+                    bottom: 0,
+                    height: { xs: 170, md: 230 },
+                    borderRadius: { xs: 5, md: 6 },
+                    backgroundColor: alpha(theme.palette.secondary.main, 0.16),
+                  }}
+                />
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    top: { xs: -12, md: 20 },
+                    left: { xs: 18, md: 160 },
+                    width: { xs: 74, md: 108 },
+                    height: { xs: 74, md: 108 },
+                    opacity: 0.95,
+                    background:
+                      `radial-gradient(circle, transparent 38%, transparent 38%),` +
+                      `linear-gradient(115deg, transparent 0 28%, ${theme.palette.secondary.light} 28% 40%, transparent 40% 48%, ${theme.palette.secondary.light} 48% 60%, transparent 60% 68%, ${theme.palette.secondary.light} 68% 80%, transparent 80%)`,
+                    transform: 'rotate(8deg)',
+                    pointerEvents: 'none',
+                  }}
+                />
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    right: { xs: 28, md: 190 },
+                    bottom: { xs: 28, md: 38 },
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(4, 12px)',
+                    gap: 1,
+                    pointerEvents: 'none',
+                  }}
+                >
+                  {Array.from({ length: 16 }).map((_, index) => (
+                    <Box
+                      key={index}
+                      sx={{
+                        width: 10,
+                        height: 10,
+                        borderRadius: '50%',
+                        backgroundColor: alpha(theme.palette.secondary.light, 0.92),
+                      }}
+                    />
+                  ))}
+                </Box>
+                <Box
+                  sx={{
+                    position: 'relative',
+                    width: { xs: '86%', md: 500 },
+                    mx: 'auto',
+                    borderRadius: { xs: 4, md: 5 },
+                    overflow: 'hidden',
+                    boxShadow: `0 28px 70px ${alpha(theme.palette.primary.dark, 0.45)}`,
+                    border: `1px solid ${alpha(theme.palette.secondary.main, 0.12)}`,
+                  }}
+                >
+                  <Box
+                    component="img"
+                    src={Logo}
+                    alt="Power House campaign showcase"
+                    sx={{
+                      display: 'block',
+                      width: '100%',
+                      aspectRatio: '4 / 3',
+                      objectFit: 'cover',
+                    }}
+                  />
+                </Box>
               </Box>
             </Box>
           </Box>
@@ -198,36 +275,9 @@ const Home = () => {
         </Container>
       </Box>
 
-      <Box sx={{ py: { xs: 8, md: 14 } }}>
-        <Container maxWidth="lg">
-          <Box
-            sx={{
-              p: { xs: 4, md: 6 },
-              borderRadius: 6,
-              display: 'grid',
-              gridTemplateColumns: { xs: '1fr', md: '1fr auto' },
-              gap: 3,
-              alignItems: 'center',
-              background:
-                `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.2)} 0%, ` +
-                `${alpha(theme.palette.background.paper, 0.9)} 50%, ${alpha(theme.palette.secondary.main, 0.14)} 100%)`,
-              border: `1px solid ${alpha(theme.palette.common.white, 0.08)}`,
-            }}
-          >
-            <Box>
-              <Typography variant="h2" sx={{ mb: 1.5 }}>
-                Ready to grow?
-              </Typography>
-              <Typography color="text.secondary" sx={{ maxWidth: 640, lineHeight: 1.8 }}>
-                Let&apos;s build a digital growth plan that looks premium, performs hard, and scales with your goals.
-              </Typography>
-            </Box>
-            <PrimaryButton href="/contact" size="large">
-              {primaryCtaText}
-            </PrimaryButton>
-          </Box>
-        </Container>
-      </Box>
+      <TestimonialsSection items={testimonials} />
+
+      
     </Box>
   );
 };

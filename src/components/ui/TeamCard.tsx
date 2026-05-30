@@ -36,13 +36,10 @@ const TeamCard = ({ name, role, bio, avatarUrl, linkedin, twitter }: TeamCardPro
         textAlign: 'center',
         height: '100%',
         transition: 'all 0.3s ease',
-        '&:hover': {
-          transform: 'translateY(-6px)',
-          borderColor: alpha(theme.palette.primary.main, 0.7),
-        },
+        
       }}
     >
-      <Stack spacing={2.5} sx={{ alignItems: 'center' }}>
+      <Stack spacing={2} sx={{ alignItems: 'center' }}>
         <Avatar
           src={avatarUrl}
           alt={name}

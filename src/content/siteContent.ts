@@ -14,6 +14,7 @@ import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import SearchIcon from '@mui/icons-material/Search';
 import StarIcon from '@mui/icons-material/Star';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import heroImage from '../assets/hero.png';
 
 export type StatItem = {
   value: string;
@@ -41,12 +42,20 @@ export type ProjectItem = {
   description: string;
 };
 
+export type TestimonialItem = {
+  name: string;
+  role: string;
+  company: string;
+  quote: string;
+  image: string;
+};
+
 export const companyTagline = 'We Power Your Digital Growth';
 export const companySubheading =
   'Power House is a full-service digital marketing agency helping brands dominate online — from SEO to paid media, content to conversion.';
-export const companyEmail = 'hello@powerhouseagency.com';
-export const companyPhone = '+1 (800) 123-4567';
-export const companyAddress = '123 Digital Ave, San Francisco, CA 94105';
+export const companyEmail = 'powerhousemarketingcompany@gmail.com';
+export const companyPhone = '+91 9715768735';
+export const companyAddress = 'Lakshmi Nagar, Erode, Tamil Nadu 638316';
 export const primaryCtaText = 'Start Growing Today';
 export const secondaryCtaText = 'See Our Work';
 
@@ -59,39 +68,52 @@ export const stats: StatItem[] = [
 
 export const services: ServiceItem[] = [
   {
-    title: 'SEO',
-    description: 'Own high-intent search with technical SEO, content strategy, and authority building.',
-    icon: SearchIcon,
+    title: 'Digital Marketing',
+    description:
+      'We create powerful marketing strategies that help your brand reach the right audience, generate leads, and grow your business online.',
+    icon: CampaignIcon,
     accent: 'primary',
   },
   {
-    title: 'Social Media',
-    description: 'Build communities and campaigns that turn attention into measurable brand lift.',
-    icon: CampaignIcon,
+    title: 'Shoot & Edit',
+    description:
+      'From product shoots to promotional videos, we create high-quality visual content with professional editing that captures attention and builds brand value.',
+    icon: AutoAwesomeIcon,
     accent: 'secondary',
   },
   {
-    title: 'PPC Ads',
-    description: 'Launch sharp paid media systems that scale efficiently across search and social.',
+    title: 'Meta Ads',
+    description:
+      'We run targeted Facebook and Instagram ad campaigns designed to increase reach, engagement, website traffic, and sales with maximum ROI.',
     icon: MonetizationOnIcon,
     accent: 'primary',
   },
   {
-    title: 'Content Marketing',
-    description: 'Create strategic editorial, landing pages, and creative that keeps pipelines moving.',
+    title: 'Web Development',
+    description:
+      'We design and develop modern, responsive, and user-friendly websites that represent your brand professionally and deliver seamless user experiences.',
     icon: ArticleIcon,
     accent: 'secondary',
   },
   {
-    title: 'Email Marketing',
-    description: 'Design nurture journeys and lifecycle automations that increase retention and revenue.',
-    icon: EmailIcon,
+    title: 'SEO Services',
+    description:
+      'Our SEO strategies help your website rank higher on search engines, improve visibility, and attract organic traffic from potential customers.',
+    icon: SearchIcon,
     accent: 'primary',
   },
   {
-    title: 'Analytics',
-    description: 'Translate data into action with dashboards, attribution insights, and conversion analysis.',
+    title: 'Graphic Design',
+    description:
+      'We create eye-catching graphics, posters, banners, social media creatives, logos, and branding materials that make your business stand out.',
     icon: BarChartIcon,
+    accent: 'secondary',
+  },
+  {
+    title: 'Social Media Handling',
+    description:
+      'We manage your social media platforms with creative content, consistent posting, audience engagement, and growth-focused strategies.',
+    icon: EmailIcon,
     accent: 'secondary',
   },
 ];
@@ -106,6 +128,11 @@ export const leadershipTeam: TeamMember[] = [
     name: 'Jordan Lee',
     role: 'Head of SEO',
     bio: 'Builds search ecosystems that turn content and technical depth into sustained visibility.',
+  },
+  {
+    name: 'Sam Patel',
+    role: 'Creative Director',
+    bio: 'Shapes bold campaigns with strong visual storytelling and conversion-minded creative direction.',
   },
   {
     name: 'Sam Patel',
@@ -208,11 +235,37 @@ export const projects: ProjectItem[] = [
   },
 ];
 
+export const testimonials: TestimonialItem[] = [
+  {
+    name: 'Ariana Brooks',
+    role: 'Founder',
+    company: 'Northline Studio',
+    quote:
+      'Power House helped us turn scattered marketing into one clear growth engine. In a few months, our brand looked sharper and our leads became far more consistent.',
+    image: heroImage,
+  },
+  {
+    name: 'Daniel Carter',
+    role: 'Marketing Head',
+    company: 'PeakForm Labs',
+    quote:
+      'Their team brought strategy, content, and paid media together in a way that finally made our digital efforts feel measurable, premium, and scalable.',
+    image: heroImage,
+  },
+  {
+    name: 'Maya Fernandez',
+    role: 'Co-Founder',
+    company: 'Luma Retail',
+    quote:
+      'We saw stronger engagement, better creative direction, and more confidence in every campaign launch. Power House felt like an extension of our own team.',
+    image: heroImage,
+  },
+];
+
 export const toolLogos = ['Google Ads', 'Meta', 'SEMrush', 'HubSpot', 'GA4', 'Search Console'];
 
 export const businessHours = [
-  'Monday - Friday: 9:00 AM - 6:00 PM',
-  'Saturday: 10:00 AM - 2:00 PM',
+  'Monday - Saturday: 9:00 AM - 6:00 PM',
   'Sunday: Closed',
 ];
 
